@@ -1,3 +1,3 @@
-[submodule "better-history"]
-	path = better-history
-	url = https://github.com/better-history/better-history
+[submodule "enhanced-history"]
+	path = enhanced-history
+	url = https://github.com/chrome-enhanced-history/enhanced-history.git

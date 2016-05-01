@@ -9,7 +9,7 @@ rm -fr $TARGET
 mkdir $DIRECTORY
 mkdir $TARGET
 
-cp -r better-history/* $DIRECTORY
+cp -r enhanced-history/* $DIRECTORY
 cp scripts/config.js $DIRECTORY/scripts
 cp -r $DIRECTORY/images $TARGET/
 cp -r $DIRECTORY/_locales $TARGET/

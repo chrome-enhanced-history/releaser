@@ -1,6 +1,6 @@
 {
   "name": "releaser",
-  "description": "Better History release packager",
+  "description": "Enhanced History release packager",
   "version": "1.9.1",
   "author": "Roy Kolak <roy.kolak@gmail.com>",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/better-history/releaser.git"
+    "url": "http://github.com/chrome-enhanced-history/releaser.git"
   },
   "devDependencies": {
     "gulp-usemin": "^0.3.8",
