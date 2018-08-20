@@ -23,6 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bower": "^1.8.4",
     "gulp-cli": "^2.0.1"
   }
 }
