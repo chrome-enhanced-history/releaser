@@ -22,5 +22,8 @@
     "scripts": {
         "build": "./build-exts"
     },
-    "version": "1.9.1"
+    "version": "1.9.1",
+    "dependencies": {
+        "bower": "^1.8.4"
+    }
 }
