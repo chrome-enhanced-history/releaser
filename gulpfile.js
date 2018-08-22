@@ -47,6 +47,7 @@ gulp.task('package:foreground', ['concat-templates'], function () {
 
 gulp.task('package:background', function() {
   var manifest = require('./' + extensionDir + '/manifest.json');
+
   var scripts = manifest.background.scripts.map(function(script) {
     return extensionDir + '/' + script;
   });
@@ -59,10 +60,13 @@ gulp.task('package:background', function() {
 
 gulp.task('manifest-rewrite', function() {
   var manifest = require('./' + extensionDir + '/manifest.json');
+
   manifest.name = manifest.name.replace(' DEV', '');
   manifest.background.scripts = ['scripts/background.js'];
 
-  fs.writeFile('build/manifest.json', JSON.stringify(manifest, null, 2), function(err) {
+  var manifest_dst_fn = './' + extensionTarget + '/manifest.json';
+
+  fs.writeFile(manifest_dst_fn, JSON.stringify(manifest, null, 2), function(err) {
     if(err) {
       console.log(err);
     }
