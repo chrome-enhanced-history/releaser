@@ -1,0 +1,43 @@
+#!/bin/zsh
+set -eo pipefail
+set -xv
+
+src_dir=./enhanced-history/
+build_dir=./build/build
+out_dir=./build/chrome
+
+rsync=(rsync -rpt --copy-links)
+
+copy-build() {
+    rm -rf $build_dir && mkdir -pv $build_dir
+    $rsync $src_dir/ $build_dir
+}
+
+populate-build() {
+    $rsync ./scripts/config.js $build_dir/scripts/
+}
+
+build-ext() {
+    rm -rf $out_dir && mkdir -pv $out_dir
+
+    $rsync $build_dir/{images,_locales} $out_dir/
+
+    # Chrome Historian uses WebWorkers that cannot be concated
+    $rsync $build_dir/bower_components/chrome-historian $out_dir/bower_components/
+
+    yarn run gulp --directory $build_dir --target $out_dir
+}
+
+package-ext() {
+    (cd $out_dir && zip -r ../chrome.zip .)
+}
+
+main() {
+    copy-build
+    populate-build
+    build-ext
+    package-ext
+}
+
+main "$@"
+
